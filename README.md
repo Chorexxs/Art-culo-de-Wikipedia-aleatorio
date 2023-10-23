@@ -1,47 +1,46 @@
-# Lector Aleatorio de Artículos de Wikipedia
+# Programa para Descargar Artículos de Wikipedia en PDF
 
-Este programa te permite explorar aleatoriamente artículos de Wikipedia. Obtiene un título de artículo al azar, muestra un resumen y te da la opción de leer el artículo completo.
+Este programa en Python utiliza la biblioteca de Wikipedia y ReportLab para buscar artículos en Wikipedia, mostrar su contenido y guardarlos en archivos PDF. Además, permite al usuario salir del programa en cualquier momento.
 
-## Descripción
+## Requisitos
 
-El programa utiliza la biblioteca `wikipedia` para acceder a la API de Wikipedia y obtener información sobre los artículos. Sigue los siguientes pasos:
+Asegúrate de tener instaladas las siguientes bibliotecas de Python:
 
-1. Genera un título de artículo aleatorio usando `wikipedia.random(1)`.
-2. Obtiene el resumen del artículo utilizando `wikipedia.summary(article_title, sentences=1)`.
-3. Si el título del artículo es ambiguo y genera un `DisambiguationError`, el programa generará un nuevo artículo aleatorio y repetirá el proceso.
-4. Muestra el título del artículo y el resumen al usuario, preguntando si desea leer el artículo completo.
-5. Si el usuario ingresa 's' (para 'sí'), el programa obtiene el contenido completo del artículo utilizando `wikipedia.page(article_title).content` y lo muestra.
-6. Si el usuario ingresa 'n' (para 'no'), el programa genera otro artículo aleatorio y repite el proceso.
+- wikipedia
+- requests
+- reportlab
 
-El programa se ejecuta en un bucle infinito hasta que el usuario elija leer un artículo completo, momento en el cual el bucle se interrumpe.
+Puedes instalar estas bibliotecas utilizando pip:
+
+```
+pip install wikipedia-api
+pip install requests
+pip install reportlab
+```
 
 ## Uso
 
-1. Asegúrate de tener instalada la biblioteca `wikipedia`. Puedes instalarla utilizando pip: `pip install wikipedia`.
-2. Ejecuta el programa.
-3. El programa mostrará un título de artículo aleatorio y su resumen.
-4. Responde a la indicación ingresando 's' para leer el artículo completo o 'n' para generar otro artículo aleatorio.
-5. Si eliges leer el artículo completo, el programa obtendrá y mostrará su contenido.
-6. Si eliges no leer el artículo completo, el programa generará otro artículo aleatorio y repetirá el proceso.
+1. Ejecuta el programa en tu entorno de Python.
+2. El programa te pedirá que ingreses una categoría para buscar un artículo aleatorio en Wikipedia. Si deseas salir en cualquier momento, simplemente escribe "salir".
+3. El programa recuperará una lista de categorías asociadas a la página ingresada y te permitirá seleccionar un artículo aleatorio.
+4. Luego, te mostrará un resumen del artículo y te dará las siguientes opciones:
+   - Leer el artículo (ingresa "1").
+   - Guardar el artículo en un archivo PDF (ingresa "2").
+   - Buscar otro artículo (ingresa "3").
+   - Salir del programa (ingresa "salir").
 
-**Nota:** Este programa se basa en la API de Wikipedia, por lo tanto, se requiere una conexión a Internet estable para que funcione correctamente.
+## Guardar un Artículo en PDF
 
-## Ejemplo
+Si eliges la opción "2" para guardar un artículo en un archivo PDF, el programa te solicitará un nombre para el archivo. El artículo se guardará en un archivo PDF con el nombre que elijas en el directorio de trabajo actual.
 
-```
-¿Quieres leer sobre 'Título del Artículo'?
-Resumen: Resumen del artículo.
+## Salir del Programa
 
-Ingresa 's' para sí o 'n' para no: n
+Puedes salir del programa en cualquier momento escribiendo "salir" como la categoría de búsqueda o como la respuesta a las opciones. El programa se cerrará sin procesar más acciones.
 
-¿Quieres leer sobre 'Otro Artículo'?
-Resumen: Resumen de otro artículo.
+## Notas
 
-Ingresa 's' para sí o 'n' para no: s
+- Si el programa no puede encontrar la página solicitada en Wikipedia, te lo informará y te dará la opción de buscar otro artículo.
+- Si se produce un error inesperado, el programa mostrará un mensaje de error y se cerrará.
+- El programa utiliza la biblioteca ReportLab para generar archivos PDF. Asegúrate de que los archivos PDF se generen correctamente y estén formateados de acuerdo a tus necesidades.
 
-El contenido completo del artículo 'Otro Artículo' se muestra aquí...
-```
-
-En este ejemplo, el programa presenta dos artículos aleatorios y pregunta al usuario si desea leer cada uno. El usuario elige no leer el primer artículo y opta por leer el contenido completo del segundo artículo.
-
-¡Disfruta explorando Wikipedia de forma aleatoria!
+¡Disfruta explorando y guardando artículos de Wikipedia en PDF con este programa!
